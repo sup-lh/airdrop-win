@@ -1,0 +1,17 @@
+{
+  "name": "AirDropWin · 隔空传",
+  "short_name": "隔空传",
+  "description": "Windows 与 iPhone / Mac 局域网高速隔空互传",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F4F0",
+  "theme_color": "#141518",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

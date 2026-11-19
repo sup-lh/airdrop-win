@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-elevated: var(--surface-elevated);
+  --color-well: var(--well);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-ink-1: var(--ink-1);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-signal: var(--signal);
+  --color-signal-hover: var(--signal-hover);
+  --color-signal-soft: var(--signal-soft);
+}
+
+/*
+ * AirDropWin Design System — "Swiss Precision Instrument"
+ * Color Discipline (85 / 10 / 5 Rule):
+ *   85% Calm Base Neutrals (Warm Ceramic Stone / Matte Obsidian Graphite)
+ *   10% Structural Ink & 1px Swiss Grid Hairlines
+ *    5% Single Signal Accent (Braun Signal Vermilion — strictly limited to
+ *       Radar Emitter Core, Primary CTA, and Active Indicator)
+ */
+:root {
+  --canvas: #f3f3ef;
+  --surface: #fbfbfa;
+  --surface-elevated: #ffffff;
+  --well: #eaeae4;
+  --hairline: #dfdfd8;
+  --hairline-strong: #c8c8bf;
+
+  --ink-1: #141517;
+  --ink-2: #5b5e66;
+  --ink-3: #8e9199;
+
+  --signal: #e64815;
+  --signal-hover: #cf3d0f;
+  --signal-soft: rgba(230, 72, 21, 0.1);
+  --signal-ring: rgba(230, 72, 21, 0.34);
+
+  --ok: #1f7a4c;
+  --ok-soft: rgba(31, 122, 76, 0.1);
+}
+
+.dark {
+  --canvas: #0c0d10;
+  --surface: #121418;
+  --surface-elevated: #171a20;
+  --well: #1b1f26;
+  --hairline: rgba(255, 255, 255, 0.085);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+
+  --ink-1: #f2f2ee;
+  --ink-2: #9498a2;
+  --ink-3: #5f6470;
+
+  --signal: #ff5e2b;
+  --signal-hover: #ff7145;
+  --signal-soft: rgba(255, 94, 43, 0.14);
+  --signal-ring: rgba(255, 94, 43, 0.42);
+
+  --ok: #34c27c;
+  --ok-soft: rgba(52, 194, 124, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI Variable", "Segoe UI", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+  color: var(--ink-1);
+  background-color: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", "Cascadia Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle signal button hover enhancement */
+.bg-signal:hover {
+  background-color: var(--signal-hover);
+}
+
+/* Tactile Industrial Keycap Press */
+.keycap-btn {
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.keycap-btn:active {
+  transform: translateY(1px);
+}
+
+/* Subtle Architectural Micro-Dot Grid Background for Radar Instrument */
+.swiss-dot-grid {
+  background-image: radial-gradient(var(--hairline-strong) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Precision Polar Radar Animations */
+@keyframes signal-ping {
+  0% {
+    transform: scale(0.32);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+@keyframes vernier-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sheet-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.signal-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--signal-ring);
+  animation: signal-ping 3.6s cubic-bezier(0.16, 0.72, 0.32, 1) infinite;
+  pointer-events: none;
+}
+
+.signal-ping-delay {
+  animation-delay: 1.8s;
+}
+
+.vernier-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, var(--signal-soft) 0deg, transparent 52deg, transparent 360deg);
+  animation: vernier-sweep 8s linear infinite;
+  pointer-events: none;
+}
+
+.animate-sheet {
+  animation: sheet-enter 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Technical Corner Brackets for QR Frame */
+.qr-bracket {
+  position: relative;
+}
+.qr-bracket::before,
+.qr-bracket::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--ink-1);
+  pointer-events: none;
+}
+.qr-bracket::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--ink-1);
+  border-left: 2px solid var(--ink-1);
+}
+.qr-bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--ink-1);
+  border-right: 2px solid var(--ink-1);
+}
+
+.safe-pb {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.safe-pt {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+/* Precision 5px Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
