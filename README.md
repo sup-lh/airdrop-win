@@ -28,11 +28,14 @@ AirDropWin 采用 **瑞士 `1px` 细线网格 × 工业仪表美学**（严格�
 ### 桌面端 · 浅色暖陶瓷（首次扫码即连 + 传输明细台账）
 ![AirDropWin Desktop Light Mode](docs/images/desktop-light.png)
 
-### 手机 / Mac 免装伴侣端 ＆ 苹果快捷指令诊断台
+### 局域网网页端（Mac / 另一台电脑访问）＆ 手机端（iPhone 免装 PWA）
 
-| iPhone / Mac 零安装界面（支持添加到主屏幕 PWA） | 苹果快捷指令蓝图 ＆ 实时诊断终端 |
+| iPhone 零安装伴侣端（克制 5% 撞色 · 极简口袋仪表） | Mac / 电脑浏览器访问局域网地址（自动展开 `1px` 双栏工作台） |
 | :---: | :---: |
-| <img src="docs/images/mobile-client.png" alt="AirDropWin Mobile Client" width="260" /> | <img src="docs/images/desktop-shortcuts.png" alt="AirDropWin Apple Shortcuts Console" width="620" /> |
+| <img src="docs/images/mobile-client.png" alt="AirDropWin Mobile Client" width="250" /> | <img src="docs/images/lan-desktop.png" alt="AirDropWin LAN Desktop Companion" width="630" /> |
+
+### 苹果快捷指令蓝图 ＆ 实时诊断终端
+![AirDropWin Apple Shortcuts Console](docs/images/desktop-shortcuts.png)
 
 ---
 
